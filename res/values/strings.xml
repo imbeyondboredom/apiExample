@@ -4,4 +4,7 @@
     <string name="app_name">apiExample</string>
     <string name="stop_recording">Stop Recording</string>
     <string name="start_recording">Start Recording</string>
+    <string name="login_log_in_button_text">Log in</string>
+    <string name="login_password_label">Password</string>
+    <string name="login_username_label">Username</string>
 </resources>

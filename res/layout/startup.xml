@@ -3,36 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Fill"
     android:id="@+id/pager"
-    android:orientation="vertical">
-    <Spinner
-        android:id="@+id/encoding_spinner"
-        style="@style/FillWidth"/>
-    <LinearLayout
+    android:orientation="vertical"
+    android:padding="20dp">
+    <Button
         style="@style/Wrap"
-        android:orientation="horizontal">
-        <Button
-            style="@style/Wrap"
-            android:id="@+id/insert_button"
-            android:text="Insert"/>
-        <Button
-                style="@style/Wrap"
-                android:id="@+id/delete_button"
-                android:text="Remove All"/>
-        <Button
-                style="@style/Wrap"
-                android:id="@+id/stop_music"
-                android:text="Stop Music"/>
-    </LinearLayout>
-    <LinearLayout
-            style="@style/Wrap"
-            android:orientation="horizontal">
-        <Button
-                style="@style/Wrap"
-                android:id="@+id/record_button"
-                android:text="@string/start_recording"/>
-    </LinearLayout>
-        <ListView
-            android:layout_height="fill_parent"
-            android:layout_width="fill_parent"
-            android:id="@+id/audioList1"/>
+        android:id="@+id/public_list_button"
+        android:text="Public list with refresh"
+        android:layout_margin="10dp"/>
+    <Button
+        style="@style/Wrap"
+        android:id="@+id/private_list_button"
+        android:text="Private list with login"
+        android:layout_margin="10dp"/>
 </LinearLayout>

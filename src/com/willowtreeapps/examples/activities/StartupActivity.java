@@ -35,7 +35,7 @@ public class StartupActivity extends RoboSherlockFragmentActivity {
         privateListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(StartupActivity.this,LoginActivity.class);
+                Intent i = new Intent(StartupActivity.this,IntentServiceActivity.class);
                 startActivity(i);
             }
         });

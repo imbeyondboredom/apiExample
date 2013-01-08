@@ -102,7 +102,7 @@ public class ExampleApi {
     {
         //Sleep for a short while
         try {
-            Thread.sleep(500);
+            Thread.sleep(2000);
         } catch (InterruptedException ignored) {
         }
 
@@ -113,11 +113,11 @@ public class ExampleApi {
             {
                 if(r.nextBoolean())
                 {
-                    throw new NetworkErrorException();
+                    throw new NetworkErrorException("This was a network error");
                 }
                 else
                 {
-                    throw new ParseException();
+                    throw new ParseException("This was a parse error");
                 }
             }
             else
@@ -127,9 +127,9 @@ public class ExampleApi {
                     case 0:
                         throw new AuthenticationException();
                     case 1:
-                        throw new NetworkErrorException();
+                        throw new NetworkErrorException("This was a network error");
                     default:
-                        throw new ParseException();
+                        throw new ParseException("This was a parse error");
                 }
             }
         }

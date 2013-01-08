@@ -178,7 +178,6 @@ public class StartupActivity extends RoboSherlockFragmentActivity
         });
         getSupportLoaderManager().initLoader(LOAD_AUDIO_RECORDINGS,null, this);
 
-
         //Get encodings
         Class c = MediaRecorder.AudioEncoder.class;
         Field[] fields = c.getFields();

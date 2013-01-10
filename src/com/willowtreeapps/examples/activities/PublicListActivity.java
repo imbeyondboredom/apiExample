@@ -1,6 +1,7 @@
 package com.willowtreeapps.examples.activities;
 
 import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockFragmentActivity;
 import com.willowtreeapps.examples.R;
 import com.willowtreeapps.examples.contentprovider.AudioContentProvider;
@@ -119,6 +120,21 @@ public class PublicListActivity extends RoboSherlockFragmentActivity implements
             mListView.setAdapter(mAdapter);
             setLoaderRunning(false);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        //Erase everything already loaded (this will show the progress animation)
+        getContentResolver().delete(AudioContentProvider.CONTENT_URI,null,null);
+
+        //request the service to reload
+        Intent intent = new Intent(this, ApiIntentService.class);
+        intent.putExtra("switcher", ApiIntentService.GETFILES);
+        intent.putExtra("force", true);
+        startService(intent);
+
+        return true;
     }
 
     @Override

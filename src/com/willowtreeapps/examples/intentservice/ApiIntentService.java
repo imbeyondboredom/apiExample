@@ -110,10 +110,12 @@ public class ApiIntentService extends RoboIntentService {
     {
         //If the time elapsed time is less than 15 minutes and is not forced then don't do anything
         long currentTime = Calendar.getInstance().getTimeInMillis();
-        if(currentTime - lastRequested < 900000 && i.getBooleanExtra("force",false))
+        if(currentTime - lastRequested < 900000 && !i.getBooleanExtra("force",false))
         {
             return;
         }
+
+        lastRequested = currentTime;
 
         //Otherwise update the list of files
         busy = true;

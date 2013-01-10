@@ -118,6 +118,34 @@ public class AudioContentProvider extends ContentProvider {
     }
 
     @Override
+    public int bulkInsert(Uri uri, ContentValues[] values) {
+        int inserted = 0;
+        if(values.length >0)
+        {
+            db.beginTransaction();
+            try
+            {
+                db.delete(AudioDbHelper.TBL_FILES,null,null);
+                for(int a=0; a<values.length; a++)
+                {
+                    long id = db.insertOrThrow(AudioDbHelper.TBL_FILES,null,values[a]);
+                    if(id>0)
+                    {
+                        inserted++;
+                    }
+                }
+                db.setTransactionSuccessful();
+                getContext().getContentResolver().notifyChange(uri,null);
+            }
+            finally
+            {
+                db.endTransaction();
+            }
+        }
+        return inserted;
+    }
+
+    @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         int delCount = 0;
         switch (URI_MATCHER.match(uri)) {

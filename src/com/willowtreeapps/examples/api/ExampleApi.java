@@ -59,10 +59,9 @@ public class ExampleApi {
     }
 
     //Simulate getting a list of public audio files
-    public static ArrayList<ApiFile> getPublicFiles() throws NetworkErrorException, ParseException,
-            AuthenticationException
+    public static ArrayList<ApiFile> getPublicFiles() throws NetworkErrorException, ParseException
     {
-        stallAndMaybeThrowException(true);
+        stallAndMaybeThrowException(false);
 
         ArrayList<ApiFile> files = new ArrayList<ApiFile>(15);
         for(int a=0; a<15; a++)
